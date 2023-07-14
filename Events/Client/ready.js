@@ -14,8 +14,8 @@ module.exports = {
    * @param (Client) client
    */
   execute(client) {
-    console.log(white('[') + green('INFO') + white('] ') + green(`${client.user.tag} (${client.user.id})`) + white(` is Ready!`));
-    console.log(white('[') + green('INFO') + white('] ') + green(`${client.guilds.cache.size} | ${client.users.cache.size} | ${client.channels.cache.size}`) + white(` Goods`));
+    console.log(white('[') + green('INFO') + white('] ') + green(`${client.user.tag} (${client.user.id})`) + white(" is Ready!"));
+    console.log(white('[') + green('INFO') + white('] ') + green(`${client.guilds.cache.size} | ${client.users.cache.size} | ${client.channels.cache.size}`) + white(" Goods"));
     wbc.send({ content: `I'm ready <@742457036914294855> with the ping of **${client.ws.ping}ms!**` })
 
     let guilds = client.guilds.cache.size;
@@ -23,10 +23,10 @@ module.exports = {
     let channels = client.channels.cache.size;
 
     const activities = [
-      `Waifu | Music`,
-      `❓| /help`,
-      `🎵| w! play`,
-      `©️2023 | L RMN`,
+      "Waifu | Music",
+      "❓| /help",
+      "🎵| w! play",
+      "©️2023 | L RMN",
     ];
 
     setInterval(() => {

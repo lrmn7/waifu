@@ -28,7 +28,7 @@ function loadUpdate(client) {
 
         const cSong = queue.songs[0];
 
-        const played = queue.playing ? `Starting playing...` : `Song pause...`;
+        const played = queue.playing ? "Starting playing..." : "Song pause...";
 
 
         const embed = new EmbedBuilder()
@@ -60,10 +60,10 @@ function loadUpdate(client) {
 
         const playEmbed = new EmbedBuilder()
             .setColor(client.important.MAIN_COLOR)
-            .setAuthor({ name: `No song playing currently.` })
-            .setImage(`https://media1.tenor.com/images/5b81f2b847f75b6fe8be15cca644260a/tenor.gif?itemid=27318347`)
+            .setAuthor({ name: "No song playing currently." })
+            .setImage("https://media1.tenor.com/images/5b81f2b847f75b6fe8be15cca644260a/tenor.gif?itemid=27318347")
             .setDescription(`>>> [Invite](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=2184310032&scope=bot%20applications.commands) | [Server](https://discord.gg/WFfjrQxnfH) | [Web](https://waifu-music.is-a.fun/)`)
-            .setFooter({ text: `Prefix is: / & w!` });
+            .setFooter({ text: "Prefix is: / & w!" });
 
         return playMsg.edit({
             embeds: [playEmbed],

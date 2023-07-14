@@ -32,7 +32,7 @@ module.exports = {
     Description: ${guild.description || "No Description"} `
           }
         )
-        .setFooter({ text: `New Server!` });
+        .setFooter({ text: "New Server!" });
 
       wbc.send({ embeds: [joinembed] });
 
@@ -53,17 +53,17 @@ module.exports = {
           new ButtonBuilder()
             .setLabel("Invite")
             .setStyle(ButtonStyle.Link)
-            .setURL(`https://discord.com/api/oauth2/authorize?client_id=1090120136167538748&permissions=8&scope=bot%20applications.commands`)
+            .setURL("https://discord.com/api/oauth2/authorize?client_id=1090120136167538748&permissions=8&scope=bot%20applications.commands")
             .setEmoji("982760548041125898"),
           new ButtonBuilder()
             .setLabel("Server")
             .setStyle(ButtonStyle.Link)
-            .setURL(`https://discord.gg/WFfjrQxnfH`)
+            .setURL("https://discord.gg/WFfjrQxnfH")
             .setEmoji("982760524863385701"),
           new ButtonBuilder()
             .setLabel("Website")
             .setStyle(ButtonStyle.Link)
-            .setURL(`https://waifu-music.is-a.fun`)
+            .setURL("https://waifu-music.is-a.fun")
             .setEmoji("982120760392949811"),
         );
       const nembed = new EmbedBuilder()

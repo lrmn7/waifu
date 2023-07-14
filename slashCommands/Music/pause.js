@@ -35,7 +35,7 @@ module.exports = {
             return interaction.reply({
               embeds: [new EmbedBuilder()
                 .setColor(client.important.ERR_COLOR)
-                .setFooter({ text: `WaifuMusic`, iconURL: client.user.displayAvatarURL() })
+                .setFooter({ text: "WaifuMusic", iconURL: client.user.displayAvatarURL() })
                 .setDescription(`${client.emoji.cross} | **You are not a DJ and not the Song Requester!**\n**DJ-Roles:**\n> ${check_if_dj(client, member, queue.songs[0])}`)
               ],
               ephemeral: true
@@ -72,7 +72,7 @@ module.exports = {
             return interaction.reply({
               embeds: [new EmbedBuilder()
                 .setColor(client.important.ERR_COLOR)
-                .setFooter({ text: `WaifuMusic`, iconURL: client.user.displayAvatarURL() })
+                .setFooter({ text: "WaifuMusic", iconURL: client.user.displayAvatarURL() })
                 .setDescription(`${client.emoji.cross} | **You are not a DJ and not the Song Requester!**\n**DJ-Roles:**\n> ${check_if_dj(client, member, queue.songs[0])}`)
               ],
               ephemeral: true

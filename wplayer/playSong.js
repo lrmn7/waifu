@@ -264,7 +264,7 @@ module.exports = async (client, queue, song) => {
             let lyricsEmbed = new EmbedBuilder()
                 .setColor(client.important.MAIN_COLOR)
                 .setTitle(client.emoji.blank + `${song}`)
-                .setDescription(`${lyrics || `No Lyrics Found!`}`)
+                .setDescription(`${lyrics || "No Lyrics Found!"}`)
                 .setTimestamp();
             if (lyrics.length > 2048) {
                 lyricsEmbed.setDescription(`${client.emoji.warning} | Lyrics too long to display!`);

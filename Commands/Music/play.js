@@ -57,7 +57,7 @@ module.exports = {
                 client.distube.voices.join(voiceChannel)
 
                 const n_embed = new EmbedBuilder()
-                    .setDescription(`Pick a button of genre music you would like to hear!`)
+                    .setDescription("Pick a button of genre music you would like to hear!")
                     .setColor(client.important.MAIN_COLOR)
                     .setTitle(client.emoji.blank + " Music Picker")
 

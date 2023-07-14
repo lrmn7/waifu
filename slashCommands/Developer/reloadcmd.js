@@ -29,7 +29,7 @@ module.exports = {
 
                 })
             })
-            interaction.reply({ content: `slashCommands Reloaded` })
+            interaction.reply({ content: "slashCommands Reloaded" })
         } catch (e) {
             console.log(e)
         }

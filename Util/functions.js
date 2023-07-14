@@ -2,7 +2,7 @@ const { EmbedBuilder, Collection, PermissionsBitField } = require("discord.js");
 
 function check_if_dj(client, member, song) {
   if (!client) return false;
-  var roleid = client.settings.get(member.guild.id, `djroles`)
+  var roleid = client.settings.get(member.guild.id, "djroles")
   if (String(roleid) == "") return false;
 
   var isdj = false;

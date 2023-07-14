@@ -49,7 +49,7 @@ module.exports = {
         if (!sty) {
           return interaction.reply({ ephemeral: true, content: `${client.emoji.cross} | Please specify a style, and re-run the command with the style number!` + "\n" + style.map(style => `\`${style.id}\` = \`${style.name}\``).join('\n') })
         }
-        const msg = await interaction.reply({ content: `Generating your image...`, fetchReply: true });
+        const msg = await interaction.reply({ content: "Generating your image...", fetchReply: true });
         styName = " "
         for (let i = 0; i < GetStyle.length; i++) {
           if (sty == GetStyle[i].id) {
@@ -69,10 +69,10 @@ module.exports = {
               .setImage(image.result.final)
               .setDescription(`This art is done by ${interaction.user.tag} using:`)
               .addFields(
-                { name: `Image Query`, value: `${client.emoji.bup}${query}`, inline: true },
-                { name: `Art Style`, value: `${client.emoji.bup}${styName}\n${client.emoji.bup}${sty}`, inline: true },
-                { name: `Created At`, value: `${client.emoji.bup}${image.created_at}`, inline: true },
-                { name: `Updated At`, value: `${client.emoji.bup}${image.updated_at}`, inline: true }
+                { name: "Image Query", value: `${client.emoji.bup}${query}`, inline: true },
+                { name: "Art Style", value: `${client.emoji.bup}${styName}\n${client.emoji.bup}${sty}`, inline: true },
+                { name: "Created At", value: `${client.emoji.bup}${image.created_at}`, inline: true },
+                { name: "Updated At", value: `${client.emoji.bup}${image.updated_at}`, inline: true }
               )
               .setFooter({ text: client.user.username + "| waifumusic.ml" })
               .setTimestamp()
@@ -92,7 +92,7 @@ module.exports = {
         if (!sty) {
           return interaction.reply({ ephemeral: true, content: `${client.emoji.cross} | Please specify a style, and re-run the command with the style number!` + "\n" + style.map(style => `\`${style.id}\` = \`${style.name}\``).join('\n') })
         }
-        const msg = await interaction.reply({ content: `Generating your image...`, fetchReply: true });
+        const msg = await interaction.reply({ content: "Generating your image...", fetchReply: true });
         styName = " "
         for (let i = 0; i < GetStyle.length; i++) {
           if (sty == GetStyle[i].id) {
@@ -112,10 +112,10 @@ module.exports = {
               .setImage(image.result.final)
               .setDescription(`This art is done by ${interaction.user.tag} using:`)
               .addFields(
-                { name: `Image Query`, value: `${client.emoji.bup}${query}`, inline: true },
-                { name: `Art Style`, value: `${client.emoji.bup}${styName}\n${client.emoji.bup}${sty}`, inline: true },
-                { name: `Created At`, value: `${client.emoji.bup}${image.created_at}`, inline: true },
-                { name: `Updated At`, value: `${client.emoji.bup}${image.updated_at}`, inline: true }
+                { name: "Image Query", value: `${client.emoji.bup}${query}`, inline: true },
+                { name: "Art Style", value: `${client.emoji.bup}${styName}\n${client.emoji.bup}${sty}`, inline: true },
+                { name: "Created At", value: `${client.emoji.bup}${image.created_at}`, inline: true },
+                { name: "Updated At", value: `${client.emoji.bup}${image.updated_at}`, inline: true }
               )
               .setFooter({ text: client.user.username + "| waifumusic.ml" })
               .setTimestamp()

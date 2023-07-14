@@ -23,7 +23,7 @@ module.exports = {
                         value: `Name: ${guild.name}\n Guild ID: ${guild.id}\n Owner: \`${owner.user.tag}\`\n Description: ${guild.description || "No Description"} `
                     }
                 )
-                .setFooter({ text: `Left Guild...` });
+                .setFooter({ text: "Left Guild..." });
 
             wbc.send({ embeds: [kickembed] });
         } catch (e) {

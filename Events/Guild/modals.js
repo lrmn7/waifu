@@ -15,7 +15,7 @@ module.exports = {
 
             await client.channels.cache.get("1115371346604589066").send({
                 embeds: [new EmbedBuilder().setTitle("Hobbies and Color").addFields(
-                    { name: `Test`, value: `${favoriteColor}` },
+                    { name: "Test", value: `${favoriteColor}` },
                     { name: 'Hobbies', value: `${hobbies}` }
                 )]
             })
@@ -30,7 +30,7 @@ module.exports = {
             const report_users4 = interaction.fields.getTextInputValue('report_user4')
             await client.channels.cache.get("1115371346604589066").send({
                 embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle("User Report").addFields(
-                    { name: `What is the name of the user?`, value: `┕\`${report_users2}\`` },
+                    { name: "What is the name of the user?", value: `┕\`${report_users2}\`` },
                     { name: 'What is the user ID?', value: `┕\`${report_users3}\`` },
                     { name: 'Reason:', value: `┕\`${report_users4}\`` }
                 ).setFooter({ text: `${interaction.user.tag} | Reported a user!`, iconURL: `${interaction.user.displayAvatarURL()}` })]
@@ -45,7 +45,7 @@ module.exports = {
             const bug_reports3 = interaction.fields.getTextInputValue('bug_report3');
             await client.channels.cache.get("1115371346604589066").send({
                 embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle("Bug Report").addFields(
-                    { name: `What command?`, value: `┕\`${bug_reports2}\`` },
+                    { name: "What command?", value: `┕\`${bug_reports2}\`` },
                     { name: 'Please describe your bug below.', value: `┕\`${bug_reports3}\`` },
                 ).setFooter({ text: `${interaction.user.tag} | Reported a bug!`, iconURL: `${interaction.user.displayAvatarURL()}` })]
             })

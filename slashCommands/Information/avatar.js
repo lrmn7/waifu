@@ -32,12 +32,12 @@ module.exports = {
         const UserAvatar = new EmbedBuilder()
           .setColor(client.important.MAIN_COLOR)
           .addFields(
-            { name: `JPG`, value: `${client.emoji.waifu_right} [Click here](${target.displayAvatarURL({ size: 1024, extension: 'jpg' })})`, inline: true },
-            { name: `PNG`, value: `${client.emoji.waifu_right} [Click here:](${target.displayAvatarURL({ size: 1024, extension: 'png' })})`, inline: true },
-            { name: `GIF`, value: `${client.emoji.waifu_right} [Click here](${target.displayAvatarURL({ size: 1024, extension: 'gif' })})`, inline: true }
+            { name: "JPG", value: `${client.emoji.waifu_right} [Click here](${target.displayAvatarURL({ size: 1024, extension: 'jpg' })})`, inline: true },
+            { name: "PNG", value: `${client.emoji.waifu_right} [Click here:](${target.displayAvatarURL({ size: 1024, extension: 'png' })})`, inline: true },
+            { name: "GIF", value: `${client.emoji.waifu_right} [Click here](${target.displayAvatarURL({ size: 1024, extension: 'gif' })})`, inline: true }
           )
           .setImage(target.displayAvatarURL({ size: 1024, extension: 'webp' || 'gif' }))
-          .setFooter({ text: `The webp option is a default link`, iconURL: client.user.displayAvatarURL() })
+          .setFooter({ text: "The webp option is a default link", iconURL: client.user.displayAvatarURL() })
         return interaction.reply({ embeds: [UserAvatar], ephemeral: true }).then(() => {
           interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
         })
@@ -45,12 +45,12 @@ module.exports = {
         const UserAvatar = new EmbedBuilder()
           .setColor(client.important.MAIN_COLOR)
           .addFields(
-            { name: `JPG`, value: `${client.emoji.waifu_right} [Click here](${target.displayAvatarURL({ size: 1024, extension: 'jpg' })})`, inline: true },
-            { name: `PNG`, value: `${client.emoji.waifu_right} [Click here:](${target.displayAvatarURL({ size: 1024, extension: 'png' })})`, inline: true },
-            { name: `GIF`, value: `${client.emoji.waifu_right} [Click here](${target.displayAvatarURL({ size: 1024, extension: 'gif' })})`, inline: true }
+            { name: "JPG", value: `${client.emoji.waifu_right} [Click here](${target.displayAvatarURL({ size: 1024, extension: 'jpg' })})`, inline: true },
+            { name: "PNG", value: `${client.emoji.waifu_right} [Click here:](${target.displayAvatarURL({ size: 1024, extension: 'png' })})`, inline: true },
+            { name: "GIF", value: `${client.emoji.waifu_right} [Click here](${target.displayAvatarURL({ size: 1024, extension: 'gif' })})`, inline: true }
           )
           .setImage(target.displayAvatarURL({ size: 1024, extension: 'webp' || 'gif' }))
-          .setFooter({ text: `The webp option is a default link`, iconURL: client.user.displayAvatarURL() })
+          .setFooter({ text: "The webp option is a default link", iconURL: client.user.displayAvatarURL() })
         return interaction.reply({ embeds: [UserAvatar], ephemeral: true })
       }
     } catch (e) {

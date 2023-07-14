@@ -42,7 +42,7 @@ module.exports = {
             }
             if (!queue.paused) {
                 let rsong = new EmbedBuilder()
-                    .setDescription(`❌ | The song/queue is already been resumed!`)
+                    .setDescription("❌ | The song/queue is already been resumed!")
                     .setColor(client.important.ERR_COLOR)
                 return message.reply({ embeds: [rsong], ephemeral: true }).then(msg => {
                     setTimeout(() => msg.delete(), 5000)

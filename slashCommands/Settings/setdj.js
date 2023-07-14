@@ -64,7 +64,7 @@ module.exports = {
                         })
                     }
                     client.settings.push(guild.id, Role.id, "djroles");
-                    var djs = client.settings.get(guild.id, `djroles`).map(r => `<@&${r}>`);
+                    var djs = client.settings.get(guild.id, "djroles").map(r => `<@&${r}>`);
                     if (djs.length == 0) djs = "`not setup`";
                     else djs.join(", ");
                     return interaction.reply({
@@ -96,7 +96,7 @@ module.exports = {
                         })
                     }
                     client.settings.remove(guild.id, Role.id, "djroles");
-                    var djs = client.settings.get(guild.id, `djroles`).map(r => `<@&${r}>`);
+                    var djs = client.settings.get(guild.id, "djroles").map(r => `<@&${r}>`);
                     if (djs.length == 0) djs = "`not setup`";
                     else djs.join(", ");
                     return interaction.reply({
@@ -128,7 +128,7 @@ module.exports = {
                         })
                     }
                     client.settings.push(guild.id, Role.id, "djroles");
-                    var djs = client.settings.get(guild.id, `djroles`).map(r => `<@&${r}>`);
+                    var djs = client.settings.get(guild.id, "djroles").map(r => `<@&${r}>`);
                     if (djs.length == 0) djs = "`not setup`";
                     else djs.join(", ");
                     return interaction.reply({
@@ -156,7 +156,7 @@ module.exports = {
                         })
                     }
                     client.settings.remove(guild.id, Role.id, "djroles");
-                    var djs = client.settings.get(guild.id, `djroles`).map(r => `<@&${r}>`);
+                    var djs = client.settings.get(guild.id, "djroles").map(r => `<@&${r}>`);
                     if (djs.length == 0) djs = "`not setup`";
                     else djs.join(", ");
                     return interaction.reply({

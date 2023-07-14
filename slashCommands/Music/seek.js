@@ -36,7 +36,7 @@ module.exports = {
       try {
         if (!client.usernews.get(guild.id, "news").includes(interaction.user.id)) {
           const nomusic = new EmbedBuilder()
-            .setDescription(`❌ | There is no music currently playing!`)
+            .setDescription("❌ | There is no music currently playing!")
             .setColor(client.important.ERR_COLOR)
           if (!queue || !queue.songs || queue.songs.length == 0) return interaction.reply({ embeds: [nomusic], ephemeral: true }).then(() => {
             interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
@@ -77,7 +77,7 @@ module.exports = {
           })
         } else if (client.usernews.get(guild.id, "news").includes(interaction.user.id)) {
           const nomusic = new EmbedBuilder()
-            .setDescription(`❌ | There is no music currently playing!`)
+            .setDescription("❌ | There is no music currently playing!")
             .setColor(client.important.ERR_COLOR)
           if (!queue || !queue.songs || queue.songs.length == 0) return interaction.reply({ embeds: [nomusic], ephemeral: true }).catch(e => { })
           if (check_if_dj(client, member, queue.songs[0])) {

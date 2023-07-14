@@ -30,7 +30,7 @@ module.exports = {
         await message.delete();
 
         const voiceChannel = await message.member.voice.channel;
-        if (!voiceChannel) return message.channel.send(`You need to be in a voice channel.`);
+        if (!voiceChannel) return message.channel.send("You need to be in a voice channel.");
 
         const options = {
             member: message.member,
