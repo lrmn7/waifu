@@ -1,0 +1,32 @@
+{
+  "token": "",
+  "alert": {
+    "title": "You have an unread news!",
+    "desc": "Use **/waifu-news** to read it!",
+    "thumb": "https://i.imgur.com/dxYSmRJ.png"
+  },
+  "messages": {
+		"COOLDOWN_MESSAGE": "You are on `<duration>` cooldown!"
+	},
+  "random_messages": [
+    "You can donate us using this [link!](https://saweria.co/LRMN)",
+    " ",
+    "Do you know WaifuMusic old version was NinoMusic?",
+    " ",
+    "Try using /help <command> to get more infomation!",
+    " ",
+    " ",
+    " ",
+    "Contact us on email: `lrmn.dev@gnail.com`",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " "
+  ]
+}
