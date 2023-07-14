@@ -1,4 +1,4 @@
-const { ApplicationCommandType, EmbedBuilder } = require("discord.js"); // packages
+const { ApplicationCommandType, EmbedBuilder } = require('discord.js') // packages
 
 module.exports = {
   name: 'getAvatar', // name of the command
@@ -13,7 +13,7 @@ module.exports = {
       .setColor(client.embed.color)
       .setDescription(`${interaction.targetUser.username} Avatar`)
       .setImage(`${interaction.targetUser.displayAvatarURL({ size: 512 })}`)
-      .setFooter({ text: 'If you want to get this user avatar user /avatar instead'})
+      .setFooter({ text: 'If you want to get this user avatar user /avatar instead' })
 
     await interaction.reply({ embeds: [Embed], ephemeral: true })
   }

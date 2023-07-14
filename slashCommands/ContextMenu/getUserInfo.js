@@ -1,4 +1,4 @@
-const { ApplicationCommandType, EmbedBuilder } = require("discord.js"); // packages
+const { ApplicationCommandType, EmbedBuilder } = require('discord.js') // packages
 
 module.exports = {
   name: 'userInfo', // name of the command
@@ -14,10 +14,10 @@ module.exports = {
       .setAuthor({ name: interaction.targetUser.tag, iconURL: interaction.targetUser.displayAvatarURL() })
       .setThumbnail(interaction.targetUser.displayAvatarURL())
       .addFields(
-        { name: "ID", value: `${interaction.targetUser.id}` },
+        { name: 'ID', value: `${interaction.targetUser.id}` },
         // { name: "Roles", value: `${interaction.targetUser.roles.cache.map(r => r).join(" ").replace("@everyone", " ") || "None"}` },
-        { name: "Member Since", value: `<t:${parseInt(interaction.targetUser.joinedTimestamp / 1000)}:R>`, inline: true },
-        { name: "Discord User Since", value: `<t:${parseInt(interaction.targetUser.createdTimestamp / 1000)}:R>`, inline: true }
+        { name: 'Member Since', value: `<t:${parseInt(interaction.targetUser.joinedTimestamp / 1000)}:R>`, inline: true },
+        { name: 'Discord User Since', value: `<t:${parseInt(interaction.targetUser.createdTimestamp / 1000)}:R>`, inline: true }
       )
 
     interaction.reply({ embeds: [Embed], ephemeral: true })

@@ -1,18 +1,18 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const SlayBotSchema = mongoose.Schema({
   news: {
     type: mongoose.SchemaTypes.String,
-    required: true,
+    required: true
   },
-  tag:{
+  tag: {
     type: mongoose.SchemaTypes.String,
-    required: true,
-  },    
- time:{
-  type: mongoose.SchemaTypes.String,
-  required: true,
- }
-});
+    required: true
+  },
+  time: {
+    type: mongoose.SchemaTypes.String,
+    required: true
+  }
+})
 
-module.exports = mongoose.model('WaifuNews', SlayBotSchema);
+module.exports = mongoose.model('WaifuNews', SlayBotSchema)

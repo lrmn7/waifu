@@ -1,5 +1,5 @@
-const { EmbedBuilder, ApplicationCommandType } = require("discord.js"); // packages
-const { check_if_dj } = require("../../Util/functions");
+const { EmbedBuilder, ApplicationCommandType } = require('discord.js') // packages
+const { check_if_dj } = require('../../Util/functions')
 
 module.exports = {
   name: 'waifu-playthelist', // name of the command
@@ -9,22 +9,22 @@ module.exports = {
   developer: true, // false if the command is for public
   type: ApplicationCommandType.ChatInput, // chatinput
   cooldown: 3000, // cooldown of the commands
-  default_member_permissions: 'SendMessages', // discord perms user to see the cmd 
+  default_member_permissions: 'SendMessages', // discord perms user to see the cmd
   userPerms: ['SendMessages'], // user perms need to use the command
   botPerms: ['SendMessages', 'ReadMessageHistory', 'Speak', 'Connect', 'UseExternalEmojis', 'AddReactions', 'EmbedLinks', 'AttachFiles'], // bot permissions
   inVoiceChannel: true,
   options: [], // options string
   execute: async (client, interaction) => {
-    const { member } = interaction;
+    const { member } = interaction
     try {
-        const song = ["https://www.youtube.com/watch?v=xvFZjo5PgG0", "https://www.youtube.com/watch?v=xvFZjo5PgG0"]
-        const playlist = await client.distube.createCustomPlaylist(song, {
-            member: member,
-            propertice: { name: "Tesint Playlist" },
-            parallel: true
-        })
+      const song = ['https://www.youtube.com/watch?v=xvFZjo5PgG0', 'https://www.youtube.com/watch?v=xvFZjo5PgG0']
+      const playlist = await client.distube.createCustomPlaylist(song, {
+        member,
+        propertice: { name: 'Tesint Playlist' },
+        parallel: true
+      })
 
-        client.distube.play(member.voice.channel, playlist)
+      client.distube.play(member.voice.channel, playlist)
     } catch (e) {
       console.log(e)
     }

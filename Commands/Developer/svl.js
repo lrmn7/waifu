@@ -1,5 +1,5 @@
-const { EmbedBuilder } = require('discord.js');
-const ee = require("../../Config/embed.json");
+const { EmbedBuilder } = require('discord.js')
+const ee = require('../../Config/embed.json')
 
 module.exports = {
   name: 'serverlist',

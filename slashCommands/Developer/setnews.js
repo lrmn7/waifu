@@ -1,7 +1,7 @@
-const { EmbedBuilder, ApplicationCommandType } = require("discord.js"); // packages
+const { EmbedBuilder, ApplicationCommandType } = require('discord.js') // packages
 
 // const { check_if_dj } = require("../../Util/functions");
-const SlayBotDB = require('../../databases/schema/news');
+const SlayBotDB = require('../../databases/schema/news')
 
 module.exports = {
   name: 'waifu-setnews', // name of the command
@@ -21,9 +21,9 @@ module.exports = {
   execute: async (client, interaction) => {
     try {
       client.usernews.clear()
-      const news = interaction.options.getString("text");
-      if (!SlayBotDB.news) return await SlayBotDB.create({ news: news, tag: '742457036914294855', time: new Date() }) + await SlayBotDB.updateOne({ news: news, tag: '742457036914294855', time: new Date() }) + interaction.reply({ content: `${client.emoji.check} | Updated news!` })
-      await SlayBotDB.updateOne({ news: news, tag: '742457036914294855', time: new Date() })
+      const news = interaction.options.getString('text')
+      if (!SlayBotDB.news) return await SlayBotDB.create({ news, tag: '742457036914294855', time: new Date() }) + await SlayBotDB.updateOne({ news, tag: '742457036914294855', time: new Date() }) + interaction.reply({ content: `${client.emoji.check} | Updated news!` })
+      await SlayBotDB.updateOne({ news, tag: '742457036914294855', time: new Date() })
     } catch (e) {
       console.log(e)
     }

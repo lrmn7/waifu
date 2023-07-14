@@ -1,6 +1,6 @@
-const { EmbedBuilder, ApplicationCommandType } = require("discord.js"); // packages
+const { EmbedBuilder, ApplicationCommandType } = require('discord.js') // packages
 
-const wait = require('node:timers/promises').setTimeout; // this is built in, no need to npm install
+const wait = require('node:timers/promises').setTimeout // this is built in, no need to npm install
 
 module.exports = {
   name: 'hi', // name of the command

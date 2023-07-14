@@ -1,10 +1,10 @@
-const { EmbedBuilder, ApplicationCommandType, WebhookClient } = require("discord.js"); // packages
-const { check_if_dj } = require("../../Util/functions");
-const weblog = require('../../Config/webhook.json');
+const { EmbedBuilder, ApplicationCommandType, WebhookClient } = require('discord.js') // packages
+const { check_if_dj } = require('../../Util/functions')
+const weblog = require('../../Config/webhook.json')
 const wbc = new WebhookClient({
   id: weblog.cmdl.id,
-  token: weblog.cmdl.token,
-});
+  token: weblog.cmdl.token
+})
 
 module.exports = {
   name: 'waifu-seek', // name of the command
@@ -14,7 +14,7 @@ module.exports = {
   developer: false, // false if the command is for public
   type: ApplicationCommandType.ChatInput, // chatinput
   cooldown: 3000, // cooldown of the commands
-  default_member_permissions: 'SendMessages', // discord perms user to see the cmd 
+  default_member_permissions: 'SendMessages', // discord perms user to see the cmd
   userPerms: ['SendMessages'], // user perms need to use the command
   botPerms: ['SendMessages', 'ReadMessageHistory', 'Speak', 'Connect', 'UseExternalEmojis', 'AddReactions', 'EmbedLinks', 'AttachFiles'], // bot permissions
   inVoiceChannel: true,
@@ -24,28 +24,30 @@ module.exports = {
       name: 'time',
       description: 'Incoming song rewind time (ms)',
       type: 10,
-      required: true,
+      required: true
     }
   ], // options string
   execute: async (client, interaction) => {
-    wbc.send(`[slashCommand] :: **Seek used by ${interaction.user.tag} from ${interaction.guild.name}**`);
+    wbc.send(`[slashCommand] :: **Seek used by ${interaction.user.tag} from ${interaction.guild.name}**`)
     try {
-      const { member, guildId, guild } = interaction;
-      const time = interaction.options.getNumber('time');
-      const queue = client.distube.getQueue(guildId);
+      const { member, guildId, guild } = interaction
+      const time = interaction.options.getNumber('time')
+      const queue = client.distube.getQueue(guildId)
       try {
-        if (!client.usernews.get(guild.id, "news").includes(interaction.user.id)) {
+        if (!client.usernews.get(guild.id, 'news').includes(interaction.user.id)) {
           const nomusic = new EmbedBuilder()
-            .setDescription("❌ | There is no music currently playing!")
+            .setDescription('❌ | There is no music currently playing!')
             .setColor(client.important.ERR_COLOR)
-          if (!queue || !queue.songs || queue.songs.length == 0) return interaction.reply({ embeds: [nomusic], ephemeral: true }).then(() => {
-            interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
-          }).catch(e => { })
+          if (!queue || !queue.songs || queue.songs.length == 0) {
+            return interaction.reply({ embeds: [nomusic], ephemeral: true }).then(() => {
+              interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
+            }).catch(e => { })
+          }
           if (check_if_dj(client, member, queue.songs[0])) {
             return interaction.reply({
               embeds: [new EmbedBuilder()
                 .setColor(client.important.ERR_COLOR)
-                .setFooter({ text: "WaifuMusic", iconURL: client.user.displayAvatarURL() })
+                .setFooter({ text: 'WaifuMusic', iconURL: client.user.displayAvatarURL() })
                 .setDescription(`❌ | **You are not a DJ and not the Song Requester!**\n**DJ-Roles:**\n> ${check_if_dj(client, member, queue.songs[0])}`)
               ],
               ephemeral: true
@@ -53,17 +55,20 @@ module.exports = {
               interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
             })
           }
-          if (time > queue.songs[0].formattedDuration) return interaction.reply({
-            embeds: [
-              new EmbedBuilder()
-                .setColor(client.important.ERR_COLOR)
-                .setAuthor({ name: 'Error', iconURL: `${client.user.displayAvatarURL()}` })
-                .setDescription('The rewind time can`t be larger than the song time!')
-            ], ephemeral: true
-          }).then(() => {
-            interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
-          })
-          queue.seek(time);
+          if (time > queue.songs[0].formattedDuration) {
+            return interaction.reply({
+              embeds: [
+                new EmbedBuilder()
+                  .setColor(client.important.ERR_COLOR)
+                  .setAuthor({ name: 'Error', iconURL: `${client.user.displayAvatarURL()}` })
+                  .setDescription('The rewind time can`t be larger than the song time!')
+              ],
+              ephemeral: true
+            }).then(() => {
+              interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
+            })
+          }
+          queue.seek(time)
           interaction.reply({
             embeds: [
               new EmbedBuilder()
@@ -75,30 +80,33 @@ module.exports = {
           }).then(() => {
             interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
           })
-        } else if (client.usernews.get(guild.id, "news").includes(interaction.user.id)) {
+        } else if (client.usernews.get(guild.id, 'news').includes(interaction.user.id)) {
           const nomusic = new EmbedBuilder()
-            .setDescription("❌ | There is no music currently playing!")
+            .setDescription('❌ | There is no music currently playing!')
             .setColor(client.important.ERR_COLOR)
           if (!queue || !queue.songs || queue.songs.length == 0) return interaction.reply({ embeds: [nomusic], ephemeral: true }).catch(e => { })
           if (check_if_dj(client, member, queue.songs[0])) {
             return interaction.reply({
               embeds: [new EmbedBuilder()
                 .setColor(client.important.ERR_COLOR)
-                .setFooter({ text: "WaifuMusic", iconURL: client.user.displayAvatarURL() })
+                .setFooter({ text: 'WaifuMusic', iconURL: client.user.displayAvatarURL() })
                 .setDescription(`❌ | **You are not a DJ and not the Song Requester!**\n**DJ-Roles:**\n> ${check_if_dj(client, member, queue.songs[0])}`)
               ],
               ephemeral: true
-            });
+            })
           }
-          if (time > queue.songs[0].formattedDuration) return interaction.reply({
-            embeds: [
-              new EmbedBuilder()
-                .setColor(client.important.ERR_COLOR)
-                .setAuthor({ name: 'Error', iconURL: `${client.user.displayAvatarURL()}` })
-                .setDescription('The rewind time can`t be larger than the song time!')
-            ], ephemeral: true
-          })
-          queue.seek(time);
+          if (time > queue.songs[0].formattedDuration) {
+            return interaction.reply({
+              embeds: [
+                new EmbedBuilder()
+                  .setColor(client.important.ERR_COLOR)
+                  .setAuthor({ name: 'Error', iconURL: `${client.user.displayAvatarURL()}` })
+                  .setDescription('The rewind time can`t be larger than the song time!')
+              ],
+              ephemeral: true
+            })
+          }
+          queue.seek(time)
           interaction.reply({
             embeds: [
               new EmbedBuilder()
@@ -112,27 +120,27 @@ module.exports = {
       } catch (e) {
         console.log(e)
         await interaction.reply({
-            embeds:
+          embeds:
                 [
-                    new EmbedBuilder()
-                        .setTitle(client.emoji.warning + " Error!")
-                        .setDescription("*n error occured!" + `${e}`)
-                        .setColor(client.important.ERR_COLOR)
+                  new EmbedBuilder()
+                    .setTitle(client.emoji.warning + ' Error!')
+                    .setDescription('*n error occured!' + `${e}`)
+                    .setColor(client.important.ERR_COLOR)
                 ],
-                ephemeral: true
+          ephemeral: true
         })
       }
     } catch (e) {
       console.log(e)
       await interaction.reply({
-          embeds:
+        embeds:
               [
-                  new EmbedBuilder()
-                      .setTitle(client.emoji.warning + " Error!")
-                      .setDescription("*n error occured!" + `${e}`)
-                      .setColor(client.important.ERR_COLOR)
+                new EmbedBuilder()
+                  .setTitle(client.emoji.warning + ' Error!')
+                  .setDescription('*n error occured!' + `${e}`)
+                  .setColor(client.important.ERR_COLOR)
               ],
-              ephemeral: true
+        ephemeral: true
       })
     }
   }

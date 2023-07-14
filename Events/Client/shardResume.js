@@ -1,5 +1,5 @@
-const { white, yellow } = require("chalk");
+const { white, yellow } = require('chalk')
 
 module.exports = async (client, id) => {
-    
+
 }

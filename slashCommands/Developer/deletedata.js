@@ -1,4 +1,4 @@
-const { EmbedBuilder, ApplicationCommandType } = require("discord.js"); // packages
+const { EmbedBuilder, ApplicationCommandType } = require('discord.js') // packages
 
 module.exports = {
   name: 'waifu-deletedata', // name of the command
@@ -13,7 +13,7 @@ module.exports = {
   execute: async (client, interaction) => {
     try {
       client.usernews.clear()
-      interaction.reply({ content: 'Data completed.' });
+      interaction.reply({ content: 'Data completed.' })
     } catch (e) {
       console.log(e)
     }
