@@ -22,7 +22,7 @@ const { SpotifyPlugin } = require('@distube/spotify');
 const { SoundCloudPlugin } = require('@distube/soundcloud');
 const { YtDlpPlugin } = require("@distube/yt-dlp");
 const { DeezerPlugin } = require("@distube/deezer");
-const filters = require(`../Config/filters.json`);
+const filters = require("../Config/filters.json");
 
 const client = new Client({
   shards: "auto",

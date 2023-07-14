@@ -71,7 +71,7 @@ module.exports = {
           const message = await interaction.fetchReply();
           await client.createPlay(interaction, message.id);
           await wait(3000)
-          await msg.edit({ content: '', embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setDescription(client.emoji.check + `** | Successfully searched!**`)], fetchReply: true });
+          await msg.edit({ content: '', embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setDescription(client.emoji.check + "** | Successfully searched!**")], fetchReply: true });
           client.distube.play(voiceChannel, string, {
             textChannel: interaction.channel,
             member: interaction.member
@@ -94,7 +94,7 @@ module.exports = {
           const msg = await interaction.reply({ content: `${client.emoji.song} | Searching...`, fetchReply: true })
           const message = await interaction.fetchReply();
           await wait(3000)
-          await msg.edit({ content: '', embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setDescription(client.emoji.check + `** | Successfully searched!**`)], fetchReply: true });
+          await msg.edit({ content: '', embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setDescription(client.emoji.check + "** | Successfully searched!**")], fetchReply: true });
           await client.createPlay(interaction, message.id);
           client.distube.play(voiceChannel, string, {
             textChannel: interaction.channel,

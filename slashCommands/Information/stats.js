@@ -25,7 +25,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setColor(client.important.MAIN_COLOR)
                 .setThumbnail(client.user.displayAvatarURL())
-                .setAuthor({ name: `Stats and Infos` })
+                .setAuthor({ name: "Stats and Infos" })
                 .setDescription(`Bot name: **${client.user.username}** and I play Music`)
                 .addFields(
                     { name: "Servers:", value: `\`${client.guilds.cache.size}\``, inline: true },

@@ -12,7 +12,7 @@ module.exports = {
   options: [], // options string
   execute: async (client, interaction) => {
     try {
-      interaction.reply({ content: `hi hello` })
+      interaction.reply({ content: "hi hello" })
     } catch (e) {
       console.log(e)
     }

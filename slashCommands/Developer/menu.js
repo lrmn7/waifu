@@ -33,43 +33,43 @@ module.exports = {
               {
                 label: "Home",
                 description: 'Home section',
-                value: `opt_home`,
+                value: "opt_home",
                 emoji: `${client.emoji.home}`
               },
               {
                 label: "Infomation",
                 description: 'Information Commands',
-                value: `opt_info`,
+                value: "opt_info",
                 emoji: `${client.emoji.info}`
               },
               {
                 label: "Music",
                 description: 'Music Commands',
-                value: `opt_music`,
+                value: "opt_music",
                 emoji: `${client.emoji.music}`
               },
               {
                 label: "Queue",
                 description: 'Queue Commands',
-                value: `opt_queue`,
+                value: "opt_queue",
                 emoji: `${client.emoji.queue}`
               },
               {
                 label: "Settings",
                 description: 'Settings Commands',
-                value: `opt_sett`,
+                value: "opt_sett",
                 emoji: `${client.emoji.setting}`
               },
               {
                 label: "Fun",
                 description: 'Fun Commands',
-                value: `opt_fun`,
+                value: "opt_fun",
                 emoji: `${client.emoji.fun}`
               },
               {
                 label: "Genshin",
                 description: 'Fun Commands',
-                value: `opt_gen`,
+                value: "opt_gen",
                 emoji: `${client.emoji.genshin}`
               }
             ])
@@ -203,7 +203,7 @@ module.exports = {
         collector.on('collect', async (b) => {
           if (!b.deferred) await b.deferUpdate()
           if (b.customId === "home") {
-            const btn_home = new EmbedBuilder().setColor(client.important.MAIN_COLOR).setAuthor({ name: `Home section` }).setDescription(`Hello there :wave:, I'm <@${client.user.id}> well since you click this button I might just tell you some informations.`).addFields(
+            const btn_home = new EmbedBuilder().setColor(client.important.MAIN_COLOR).setAuthor({ name: "Home section" }).setDescription(`Hello there :wave:, I'm <@${client.user.id}> well since you click this button I might just tell you some informations.`).addFields(
               { name: 'Commands Size', value: `╰Slash - \`${client.slashCommands.size}\`\n╰Prefix - \`${client.commands.size}\``, inline: true },
               { name: 'Ping', value: `╰Websocket - \`${client.ws.ping}ms\`\n╰Shards - \`${client.ws.shards.ping || 'No Shards'}\`\n╰Roundtrip - \`${msg.createdTimestamp - interaction.createdTimestamp}ms\``, inline: true },
               { name: 'Creator', value: `╰Name - \`${client.important.OWNER_TAG}\`\n╰ID - \`${client.important.MONGO_DB}\`\n╰URL - __[\`LRMN\`](${client.important.OWNER_LINK})__`, inline: true }
@@ -257,7 +257,7 @@ module.exports = {
               case "opt_home":
                 {
                   await msg.edit({
-                    embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setAuthor({ name: `Home section` }).setDescription(`Hello there :wave:, I'm <@${client.user.id}> well since you click this button I might just tell you some informations.`).addFields(
+                    embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setAuthor({ name: "Home section" }).setDescription(`Hello there :wave:, I'm <@${client.user.id}> well since you click this button I might just tell you some informations.`).addFields(
                       { name: 'Commands Size', value: `╰Slash - \`${client.slashCommands.size}\`\n╰Prefix - \`${client.commands.size}\``, inline: true },
                       { name: 'Ping', value: `╰Websocket - \`${client.ws.ping}ms\`\n╰Shards - \`${client.ws.shards.ping || 'No Shards'}\`\n╰Roundtrip - \`${msg.createdTimestamp - interaction.createdTimestamp}ms\``, inline: true },
                       { name: 'Creator', value: `╰Name - \`${client.important.OWNER_TAG}\`\n╰ID - \`${client.important.MONGO_DB}\`\n╰URL - __[\`LRMN\`](${client.important.OWNER_LINK})__`, inline: true }

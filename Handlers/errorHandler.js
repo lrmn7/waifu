@@ -31,7 +31,7 @@ function loadError(client) {
             embeds: [
                 new EmbedBuilder()
                     .setColor(client.important.ERR_COLOR)
-                    .setTitle(`An Error Occured:`)
+                    .setTitle("An Error Occured:")
                     .setDescription(`\`\`\`${reason}\`\`\``)
                     .setTimestamp()
             ]

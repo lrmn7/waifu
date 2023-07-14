@@ -80,7 +80,7 @@ module.exports = {
                             new EmbedBuilder()
                                 .setColor(client.important.MAIN_COLOR)
                                 .setTitle(client.emoji.blank + 'CoinFlips')
-                                .setDescription(`**Flipping the Coins...**`)
+                                .setDescription("**Flipping the Coins...**")
                         ],
                         components: []
                     });
@@ -105,7 +105,7 @@ module.exports = {
                             new EmbedBuilder()
                                 .setColor(client.important.MAIN_COLOR)
                                 .setTitle(client.emoji.blank + 'CoinFlips')
-                                .setDescription(`**Re-Flipping the Coins...**`)
+                                .setDescription("**Re-Flipping the Coins...**")
                         ],
                         components: []
                     });

@@ -11,7 +11,7 @@ module.exports = {
     // options: [], options string
     execute: async (client, interaction) => {
         try {
-            let { body } = await superagent.get(`https://api.waifu.pics/sfw/wave`);
+            let { body } = await superagent.get("https://api.waifu.pics/sfw/wave");
             const embed = new EmbedBuilder()
                 .setColor(client.important.MAIN_COLOR)
                 .setDescription(`Hey <@${interaction.targetUser.id}>!, <@${interaction.user.id}> just wave at you!`)

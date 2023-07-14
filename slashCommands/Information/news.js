@@ -31,7 +31,7 @@ module.exports = {
         tag: '1115382570432081930'
       });
 
-      if(!guildDB) return interaction.reply({ content: `There is no news` });
+      if(!guildDB) return interaction.reply({ content: "There is no news" });
 
       const embed = new EmbedBuilder()
         .setColor(client.important.MAIN_COLOR)
@@ -40,7 +40,7 @@ module.exports = {
           // { name: 'Date Published', value: `╰${moment(guildDB.time).format("dddd, MMMM Do YYYY")} - *__[\`(${moment(guildDB.time).fromNow()})\`](https://waifu-music.is-a.fun)__*` },
           { name: 'Latest News', value: `╰${guildDB.news}` }
         )
-        .setFooter({ text: `WaifuMusic | waifu-music.is-a.fun`, iconURL: client.user.displayAvatarURL() })
+        .setFooter({ text: "WaifuMusic | waifu-music.is-a.fun", iconURL: client.user.displayAvatarURL() })
         .setTimestamp();
       await interaction.reply({ embeds: [embed] })
     } catch (e) {

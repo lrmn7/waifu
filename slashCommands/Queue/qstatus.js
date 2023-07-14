@@ -34,7 +34,7 @@ module.exports = {
         }).then(() => {
           interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
         })
-        var djs = client.settings.get(queue.id, `djroles`);
+        var djs = client.settings.get(queue.id, "djroles");
         if (!djs || !Array.isArray(djs)) djs = [];
         else djs = djs.map(r => `<@&${r}>`);
         if (djs.length == 0) djs = "`None`";
@@ -43,14 +43,14 @@ module.exports = {
         let embed = new EmbedBuilder()
           .setColor(client.important.MAIN_COLOR)
           .addFields(
-            { name: `💡 Requested by:`, value: `┕${newTrack.user}`, inline: true },
-            { name: `⏱ Duration:`, value: `┕\`${queue.formattedCurrentTime} / ${newTrack.formattedDuration}\``, inline: true },
-            { name: `🌀 Queue:`, value: `┕\`${queue.songs.length} song(s)\`\n┕\`${queue.formattedDuration}\``, inline: true },
-            { name: `🔊 Volume:`, value: `┕\`${queue.volume}%\``, inline: true },
-            { name: `♾ Loop:`, value: `┕${queue.repeatMode ? queue.repeatMode === 2 ? `✅ \`Queue\`` : `✅ \`Song\`` : `❌ \`None\``}`, inline: true },
-            { name: `↪️ Autoplay:`, value: `┕${queue.autoplay ? `✅` : `❌ \`None\``}`, inline: true },
-            { name: `❔ Download Song:`, value: `┕[\`Click here\`](${newTrack.streamURL})`, inline: true },
-            { name: `❔ Filter${queue.filters.length > 0 ? "s" : ""}:`, value: `┕${queue.filters && queue.filters.length > 0 ? `${queue.filters.map(f => `✅ \`${f}\``).join(`, `)}` : `❌ \`None\``}`, inline: true },
+            { name: "💡 Requested by:", value: `┕${newTrack.user}`, inline: true },
+            { name: "⏱ Duration:", value: `┕\`${queue.formattedCurrentTime} / ${newTrack.formattedDuration}\``, inline: true },
+            { name: "🌀 Queue:", value: `┕\`${queue.songs.length} song(s)\`\n┕\`${queue.formattedDuration}\``, inline: true },
+            { name: "🔊 Volume:", value: `┕\`${queue.volume}%\``, inline: true },
+            { name: "♾ Loop:", value: `┕${queue.repeatMode ? queue.repeatMode === 2 ? "✅ \`Queue\`" : "✅ \`Song\`" : "❌ \`None\`"}`, inline: true },
+            { name: "↪️ Autoplay:", value: `┕${queue.autoplay ? "✅" : "❌ \`None\`"}`, inline: true },
+            { name: "❔ Download Song:", value: `┕[\`Click here\`](${newTrack.streamURL})`, inline: true },
+            { name: `❔ Filter${queue.filters.length > 0 ? "s" : ""}:`, value: `┕${queue.filters && queue.filters.length > 0 ? `${queue.filters.map(f => `✅ \`${f}\``).join(", ")}` : "❌ \`None\`"}`, inline: true },
             { name: `🎧 DJ-Role${djs.length > 1 ? "s" : ""}:`, value: `┕${djs}`, inline: true }
           )
           .setAuthor({ name: `${newTrack.name}` })
@@ -66,7 +66,7 @@ module.exports = {
           ],
           ephemeral: true
         })
-        var djs = client.settings.get(queue.id, `djroles`);
+        var djs = client.settings.get(queue.id, "djroles");
         if (!djs || !Array.isArray(djs)) djs = [];
         else djs = djs.map(r => `<@&${r}>`);
         if (djs.length == 0) djs = "`None`";
@@ -75,14 +75,14 @@ module.exports = {
         let embed = new EmbedBuilder()
           .setColor(client.important.MAIN_COLOR)
           .addFields(
-            { name: `💡 Requested by:`, value: `┕${newTrack.user}`, inline: true },
-            { name: `⏱ Duration:`, value: `┕\`${queue.formattedCurrentTime} / ${newTrack.formattedDuration}\``, inline: true },
-            { name: `🌀 Queue:`, value: `┕\`${queue.songs.length} song(s)\`\n┕\`${queue.formattedDuration}\``, inline: true },
-            { name: `🔊 Volume:`, value: `┕\`${queue.volume}%\``, inline: true },
-            { name: `♾ Loop:`, value: `┕${queue.repeatMode ? queue.repeatMode === 2 ? `✅ \`Queue\`` : `✅ \`Song\`` : `❌ \`None\``}`, inline: true },
-            { name: `↪️ Autoplay:`, value: `┕${queue.autoplay ? `✅` : `❌ \`None\``}`, inline: true },
-            { name: `❔ Download Song:`, value: `┕[\`Click here\`](${newTrack.streamURL})`, inline: true },
-            { name: `❔ Filter${queue.filters.length > 0 ? "s" : ""}:`, value: `┕${queue.filters && queue.filters.length > 0 ? `${queue.filters.map(f => `✅ \`${f}\``).join(`, `)}` : `❌ \`None\``}`, inline: true },
+            { name: "💡 Requested by:", value: `┕${newTrack.user}`, inline: true },
+            { name: "⏱ Duration:", value: `┕\`${queue.formattedCurrentTime} / ${newTrack.formattedDuration}\``, inline: true },
+            { name: "🌀 Queue:", value: `┕\`${queue.songs.length} song(s)\`\n┕\`${queue.formattedDuration}\``, inline: true },
+            { name: "🔊 Volume:", value: `┕\`${queue.volume}%\``, inline: true },
+            { name: "♾ Loop:", value: `┕${queue.repeatMode ? queue.repeatMode === 2 ? "✅ \`Queue\`" : "✅ \`Song\`" : "❌ \`None\`"}`, inline: true },
+            { name: "↪️ Autoplay:", value: `┕${queue.autoplay ? "✅" : "❌ \`None\`"}`, inline: true },
+            { name: "❔ Download Song:", value: `┕[\`Click here\`](${newTrack.streamURL})`, inline: true },
+            { name: `❔ Filter${queue.filters.length > 0 ? "s" : ""}:`, value: `┕${queue.filters && queue.filters.length > 0 ? `${queue.filters.map(f => `✅ \`${f}\``).join(", ")}` : "❌ \`None\`"}`, inline: true },
             { name: `🎧 DJ-Role${djs.length > 1 ? "s" : ""}:`, value: `┕${djs}`, inline: true }
           )
           .setAuthor({ name: `${newTrack.name}` })

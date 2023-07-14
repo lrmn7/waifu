@@ -23,11 +23,11 @@ module.exports = {
                 case "sprevious":
                     {
                         if (!channel) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (interaction.guild.members.me.voice.channel && !interaction.guild.members.me.voice.channel.equals(channel)) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (!queue) {
-                            return interaction.reply(`There is nothing in the queue right now!`);
+                            return interaction.reply("There is nothing in the queue right now!");
                         } else if (queue.previousSongs.length == 0) {
                             interaction.reply("🚨 | There are no **Previous songs**");
                         } else {
@@ -44,11 +44,11 @@ module.exports = {
                 case "sskip":
                     {
                         if (!channel) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (interaction.guild.members.me.voice.channel && !interaction.guild.members.me.voice.channel.equals(channel)) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (!queue) {
-                            return interaction.reply(`There is nothing in the queue right now!`);
+                            return interaction.reply("There is nothing in the queue right now!");
                         } else if (queue.songs.length === 1 && queue.autoplay === false) {
                             const embed = new EmbedBuilder()
                                 .setColor(client.important.ERR_COLOR)
@@ -70,11 +70,11 @@ module.exports = {
                 case "sstop":
                     {
                         if (!channel) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (interaction.guild.members.me.voice.channel && !interaction.guild.members.me.voice.channel.equals(channel)) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (!queue) {
-                            return interaction.reply(`There is nothing in the queue right now!`);
+                            return interaction.reply("There is nothing in the queue right now!");
                         } else {
                             await client.distube.stop(interaction);
                             await client.distube.voices.leave(interaction.guild);
@@ -93,19 +93,19 @@ module.exports = {
                 case "spause":
                     {
                         if (!channel) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (interaction.guild.members.me.voice.channel && !interaction.guild.members.me.voice.channel.equals(channel)) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (!queue) {
-                            return interaction.reply(`There is nothing in the queue right now!`);
+                            return interaction.reply("There is nothing in the queue right now!");
                         } if (queue.paused) {
-                            return interaction.reply(`Song is already paused.`)
+                            return interaction.reply("Song is already paused.")
                         } else {
                             await client.distube.pause(interaction);
 
                             const embed = new EmbedBuilder()
                                 .setColor(client.important.MAIN_COLOR)
-                                .setDescription(`⏸ | Song has been **Paused**`);
+                                .setDescription("⏸ | Song has been **Paused**");
 
                             interaction.reply({ embeds: [embed] });
                             client.UpdateQueueMsg(queue);
@@ -116,19 +116,19 @@ module.exports = {
                 case "sresume":
                     {
                         if (!channel) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (interaction.guild.members.me.voice.channel && !interaction.guild.members.me.voice.channel.equals(channel)) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (!queue) {
-                            return interaction.reply(`There is nothing in the queue right now!`);
+                            return interaction.reply("There is nothing in the queue right now!");
                         } if (!queue.paused) {
-                            return interaction.reply(`Song is already resumed.`)
+                            return interaction.reply("Song is already resumed.")
                         } else {
                             await client.distube.resume(interaction);
 
                             const embed = new EmbedBuilder()
                                 .setColor(client.important.MAIN_COLOR)
-                                .setDescription(`▶ | Song has been **Resumed**`);
+                                .setDescription("▶ | Song has been **Resumed**");
 
                             interaction.reply({ embeds: [embed] });
                             client.UpdateQueueMsg(queue);
@@ -139,11 +139,11 @@ module.exports = {
                 case "svoldown":
                     {
                         if (!channel) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (interaction.guild.members.me.voice.channel && !interaction.guild.members.me.voice.channel.equals(channel)) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (!queue) {
-                            return interaction.reply(`There is nothing in the queue right now!`);
+                            return interaction.reply("There is nothing in the queue right now!");
                         } else {
                             await client.distube.setVolume(interaction, queue.volume - 10);
 
@@ -160,11 +160,11 @@ module.exports = {
                 case "svolup":
                     {
                         if (!channel) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (interaction.guild.members.me.voice.channel && !interaction.guild.members.me.voice.channel.equals(channel)) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (!queue) {
-                            return interaction.reply(`There is nothing in the queue right now!`);
+                            return interaction.reply("There is nothing in the queue right now!");
                         } else {
                             await client.distube.setVolume(interaction, queue.volume + 10);
 
@@ -181,17 +181,17 @@ module.exports = {
                 case "sloop":
                     {
                         if (!channel) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (interaction.guild.members.me.voice.channel && !interaction.guild.members.me.voice.channel.equals(channel)) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (!queue) {
-                            return interaction.reply(`There is nothing in the queue right now!`);
+                            return interaction.reply("There is nothing in the queue right now!");
                         } else if (queue.repeatMode === 2) {
                             await client.distube.setRepeatMode(interaction, 0);
 
                             const embed = new EmbedBuilder()
                                 .setColor(client.important.MAIN_COLOR)
-                                .setDescription(`🔁 | Song is unloop: **All**`)
+                                .setDescription("🔁 | Song is unloop: **All**")
 
                             interaction.reply({ embeds: [embed] });
                         } else {
@@ -199,7 +199,7 @@ module.exports = {
 
                             const embed = new EmbedBuilder()
                                 .setColor(client.important.MAIN_COLOR)
-                                .setDescription(`🔁 | Song is loop: **All**`)
+                                .setDescription("🔁 | Song is loop: **All**")
 
                             interaction.reply({ embeds: [embed] });
                         }
@@ -209,11 +209,11 @@ module.exports = {
                 case "sautoplay":
                     {
                         if (!channel) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (interaction.guild.members.me.voice.channel && !interaction.guild.members.me.voice.channel.equals(channel)) {
-                            return interaction.reply(`You need to be in a voice channel.`);
+                            return interaction.reply("You need to be in a voice channel.");
                         } else if (!queue) {
-                            return interaction.reply(`There is nothing in the queue right now!`);
+                            return interaction.reply("There is nothing in the queue right now!");
                         } else {
                             const autoplay = queue.toggleAutoplay();
 

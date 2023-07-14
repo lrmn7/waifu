@@ -47,7 +47,7 @@ module.exports = {
     if (Sub === 'current') {
       try {
         if (!client.usernews.get(guild.id, "news").includes(interaction.user.id)) {
-          const msg = await interaction.reply({ content: `Searching for lyrics...`, fetchReply: true }).then(() => {
+          const msg = await interaction.reply({ content: "Searching for lyrics...", fetchReply: true }).then(() => {
             interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
           })
           if (!queue) interaction.reply({ content: `${client.emoji.cross} | There is nothing in the queue right now!`, ephemeral: true }).then(() => {
@@ -68,7 +68,7 @@ module.exports = {
           let lyricsEmbed = new EmbedBuilder()
             .setColor(client.important.MAIN_COLOR)
             .setTitle(`${song}`)
-            .setDescription(`${lyrics || `No Lyrics Found!`}`)
+            .setDescription(`${lyrics || "No Lyrics Found!"}`)
             .setFooter({ text: `Requested by ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
             .setTimestamp();
           if (lyrics.length > 2048) {
@@ -79,7 +79,7 @@ module.exports = {
             interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
           })
         } else if (client.usernews.get(guild.id, "news").includes(interaction.user.id)) {
-          const msg = await interaction.reply({ content: `Searching for lyrics...`, fetchReply: true })
+          const msg = await interaction.reply({ content: "Searching for lyrics...", fetchReply: true })
           if (!queue) interaction.reply({ content: `${client.emoji.cross} | There is nothing in the queue right now!`, ephemeral: true })
           let CurrentSong = queue.songs[0];
           let song = CurrentSong.name
@@ -94,7 +94,7 @@ module.exports = {
           let lyricsEmbed = new EmbedBuilder()
             .setColor(client.important.MAIN_COLOR)
             .setTitle(`${song}`)
-            .setDescription(`${lyrics || `No Lyrics Found!`}`)
+            .setDescription(`${lyrics || "No Lyrics Found!"}`)
             .setFooter({ text: `Requested by ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
             .setTimestamp();
           if (lyrics.length > 2048) {
@@ -131,7 +131,7 @@ module.exports = {
           let lyricsEmbed2 = new EmbedBuilder()
             .setColor(client.important.MAIN_COLOR)
             .setTitle(`${string}`)
-            .setDescription(`${lyrics || `No Lyrics Found!`}`)
+            .setDescription(`${lyrics || "No Lyrics Found!"}`)
             .setFooter({ text: `Requested by ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
             .setTimestamp();
 
@@ -161,7 +161,7 @@ module.exports = {
           let lyricsEmbed2 = new EmbedBuilder()
             .setColor(client.important.MAIN_COLOR)
             .setTitle(`${string}`)
-            .setDescription(`${lyrics || `No Lyrics Found!`}`)
+            .setDescription(`${lyrics || "No Lyrics Found!"}`)
             .setFooter({ text: `Requested by ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
             .setTimestamp();
 
