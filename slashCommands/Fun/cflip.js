@@ -47,7 +47,7 @@ module.exports = {
                         .setStyle(ButtonStyle.Secondary)
                 );
 
-            interaction.deferUpdate;
+            
 
             let sent = await interaction.reply({
                 embeds: [
@@ -73,7 +73,7 @@ module.exports = {
                 if (interaction.customId == "isFlip") {
                     const sides = side[Math.floor(Math.random() * side.length)];
 
-                    interaction.deferUpdate;
+                    
 
                     await interaction.update({
                         embeds: [
@@ -120,7 +120,7 @@ module.exports = {
 
                         embed.description.toLowerCase().includes('heads') == true ? text = true : text = false;
 
-                        interaction.deferUpdate;
+                        
                         return setTimeout(async () => {
                             await interaction.message.edit({
                                 embeds: [
@@ -134,7 +134,7 @@ module.exports = {
                         }, resultTimer);
                     })
                 } else if (text == false && sides == false) {
-                    interaction.deferUpdate;
+                    
                     return setTimeout(async () => {
                         await interaction.message.edit({
                             embeds: [
@@ -147,7 +147,7 @@ module.exports = {
                         });
                     }, resultTimer);
                 } else {
-                    interaction.deferUpdate;
+                    
                     await interaction.message.edit({
                         embeds: [
                             new EmbedBuilder()
