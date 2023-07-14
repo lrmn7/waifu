@@ -28,7 +28,7 @@ module.exports = {
                 .setColor(client.important.ERR_COLOR)
             if (!queue || !queue.songs || queue.songs.length == 0) return message.reply({ embeds: [nomusic] }).then(msg => {
                 setTimeout(() => msg.delete(), 5000)
-            }).catch((err) => console.log(err));
+            }).catch((err) => {});
             if (check_if_dj(client, member, queue.songs[0])) {
                 return message.reply({
                     embeds: [new EmbedBuilder()
@@ -38,7 +38,7 @@ module.exports = {
                     ]
                 }).then(msg => {
                     setTimeout(() => msg.delete(), 5000)
-                }).catch((err) => console.log(err));
+                }).catch((err) => {});
             }
             if (!queue.paused) {
                 let rsong = new EmbedBuilder()
@@ -46,7 +46,7 @@ module.exports = {
                     .setColor(client.important.ERR_COLOR)
                 return message.reply({ embeds: [rsong], ephemeral: true }).then(msg => {
                     setTimeout(() => msg.delete(), 5000)
-                }).catch((err) => console.log(err));
+                }).catch((err) => {});
             }
             queue.resume();
             message.reply({

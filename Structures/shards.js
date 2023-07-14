@@ -10,13 +10,13 @@ const manager = new ShardingManager('./Structures/WaifuMusic.js', {
 });
 
 manager.spawn({ amount: manager.totalShards, delay: null, timeout: -1 }).then((shards) => {
-  console.log(`[CLIENT] ${shards.size} shard(s) spawned.`);
+  
 }).catch((err) => {
-  console.log("[CLIENT] An error has occurred :", err);
+  
 });
 
 manager.on("shardCreate", (shard) => {
   shard.on("ready", () => {
-    console.log(`[CLIENT] Shard ${shard.id} connected`);
+    
   });
 });

@@ -39,12 +39,12 @@ module.exports = {
                         message.channel.send(`${userMessages.size} messages from ${user.tag} purged.`);
                     })
                     .catch(error => {
-                        console.log(error);
+                        
                         message.channel.send('An error occurred while trying to purge the messages.');
                     });
             })
             .catch(error => {
-                console.log(error);
+                
                 message.channel.send('An error occurred while trying to fetch the messages.');
             });
     },

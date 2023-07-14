@@ -16,14 +16,14 @@ module.exports = {
         try {
             client.slashCommands.sweep(() => true)
             glob(`${__dirname}/../**/*.js`, async (err, filePaths) => {
-                if (err) return console.log(err);
+                if (err) 
                 filePaths.forEach((file) => {
                     delete require.cache[require.resolve(file)];
 
                     const pull = require(file)
 
                     if (pull.name) {
-                        console.log(`Reload slashCommands ${pull.name} (cmd)`);
+                        
                         client.slashCommands.set(pull.name, pull);
                     }
 

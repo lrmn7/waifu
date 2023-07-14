@@ -33,10 +33,10 @@ module.exports = {
             if (queue.songs.length === 1 && queue.autoplay === false) {
                 return message.reply({ embeds: [noskip] }).then(msg => {
                     setTimeout(() => msg.delete(), 5000)
-                }).catch((err) => console.log(err));
+                }).catch((err) => {});
             } else if (!queue || !queue.songs || queue.songs.length == 0) return message.reply({ embeds: [nomusic] }).then(msg => {
                 setTimeout(() => msg.delete(), 5000)
-            }).catch((err) => console.log(err));
+            }).catch((err) => {});
             if (check_if_dj(client, member, queue.songs[0])) {
                 return message.reply({
                     embeds: [new EmbedBuilder()
@@ -46,7 +46,7 @@ module.exports = {
                     ]
                 }).then(msg => {
                     setTimeout(() => msg.delete(), 5000)
-                }).catch((err) => console.log(err));
+                }).catch((err) => {});
             }
             await queue.skip();
             message.reply({

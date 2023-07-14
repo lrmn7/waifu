@@ -35,13 +35,13 @@ module.exports = {
                 ]
             }).then(msg => {
                 setTimeout(() => msg.delete(), 5000)
-            }).catch((err) => console.log(err));
+            }).catch((err) => {});
             const nomusic = new EmbedBuilder()
                 .setDescription(`${client.emoji.cross} | There is no music currently playing!`)
                 .setColor(client.important.ERR_COLOR)
             if (!queue || !queue.songs || queue.songs.length == 0) return message.reply({ embeds: [nomusic] }).then(msg => {
                 setTimeout(() => msg.delete(), 5000)
-            }).catch((err) => console.log(err));
+            }).catch((err) => {});
             if (check_if_dj(client, member, queue.songs[0])) {
                 return message.reply({
                     embeds: [new EmbedBuilder()
@@ -51,7 +51,7 @@ module.exports = {
                     ]
                 }).then(msg => {
                     setTimeout(() => msg.delete(), 5000)
-                }).catch((err) => console.log(err));
+                }).catch((err) => {});
             }
             queue.setVolume(volume);
             message.reply({
