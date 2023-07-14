@@ -1,5 +1,5 @@
-const { white, red } = require('chalk');
+const { white, red } = require('chalk')
 
 module.exports = async (client, error) => {
-    
-};
+
+}

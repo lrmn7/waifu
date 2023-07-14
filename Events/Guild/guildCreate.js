@@ -1,23 +1,23 @@
-const { EmbedBuilder, Collection, PermissionsBitField, ButtonBuilder, ButtonStyle, ActionRowBuilder, WebhookClient, ChannelType } = require('discord.js');
-const config = require('../../Config/config.json');
-const weblog = require('../../Config/webhook.json');
+const { EmbedBuilder, Collection, PermissionsBitField, ButtonBuilder, ButtonStyle, ActionRowBuilder, WebhookClient, ChannelType } = require('discord.js')
+const config = require('../../Config/config.json')
+const weblog = require('../../Config/webhook.json')
 const wbc = new WebhookClient({
   id: weblog.addnrem.id,
-  token: weblog.addnrem.token,
-});
+  token: weblog.addnrem.token
+})
 
 module.exports = {
   name: 'guildCreate',
   execute: async (guild, client) => {
-    await client.createExVoice(interaction);
-    await client.createExSetup(interaction);
-    await client.createAniExSetup(interaction);
+    await client.createExVoice(interaction)
+    await client.createExSetup(interaction)
+    await client.createAniExSetup(interaction)
     try {
       const owner = await guild.fetchOwner()
       // console.log(guild.ownerId)
-      let joinembed = new EmbedBuilder()
-        .setAuthor({ name: guild.name, iconURL: guild.iconURL() || "https://res.cloudinary.com/lrmn/image/upload/v1685996171/waifumusic_t3pfk9.png" })
-        .setThumbnail(guild.iconURL() || "https://res.cloudinary.com/lrmn/image/upload/v1685996171/waifumusic_t3pfk9.png")
+      const joinembed = new EmbedBuilder()
+        .setAuthor({ name: guild.name, iconURL: guild.iconURL() || 'https://res.cloudinary.com/lrmn/image/upload/v1685996171/waifumusic_t3pfk9.png' })
+        .setThumbnail(guild.iconURL() || 'https://res.cloudinary.com/lrmn/image/upload/v1685996171/waifumusic_t3pfk9.png')
         .setColor(client.important.MAIN_COLOR)
         .addFields(
           {
@@ -29,62 +29,62 @@ module.exports = {
     Owner: \`${owner.user.tag}\`
     Member Count: ${guild.memberCount} member(s)
 
-    Description: ${guild.description || "No Description"} `
+    Description: ${guild.description || 'No Description'} `
           }
         )
-        .setFooter({ text: "New Server!" });
+        .setFooter({ text: 'New Server!' })
 
-      wbc.send({ embeds: [joinembed] });
+      wbc.send({ embeds: [joinembed] })
 
-    //   // a message will be sent to ther owner of the server
-    //   guild.members.cache.get(guild.ownerId)?.send({
-    //     embeds: [
-    //       new MessageEmbed()
-    //         .setColor(client.important.MAIN_COLOR)
-    //         .setTitle("Hey 👋, Thanks for inviting me to your server!")
-    //         .setImage("https://giphy.com/gifs/AdRiVFBcGJ5iZRqUyG")
-    //         .setDescription("I'm WaifuMusic, I play Music for everyone in VC!")
-    //         .setFooter({ text: "Only the server owner can receive this message.", iconURL: "https://cdn.discordapp.com/avatars/1013477956905091144/eb31b5a2228f7ea5f79c8a3fdc56cb02.png" })
-    //     ]
-    //   });
+      //   // a message will be sent to ther owner of the server
+      //   guild.members.cache.get(guild.ownerId)?.send({
+      //     embeds: [
+      //       new MessageEmbed()
+      //         .setColor(client.important.MAIN_COLOR)
+      //         .setTitle("Hey 👋, Thanks for inviting me to your server!")
+      //         .setImage("https://giphy.com/gifs/AdRiVFBcGJ5iZRqUyG")
+      //         .setDescription("I'm WaifuMusic, I play Music for everyone in VC!")
+      //         .setFooter({ text: "Only the server owner can receive this message.", iconURL: "https://cdn.discordapp.com/avatars/1013477956905091144/eb31b5a2228f7ea5f79c8a3fdc56cb02.png" })
+      //     ]
+      //   });
 
       const row = new ActionRowBuilder()
         .addComponents(
           new ButtonBuilder()
-            .setLabel("Invite")
+            .setLabel('Invite')
             .setStyle(ButtonStyle.Link)
-            .setURL("https://discord.com/api/oauth2/authorize?client_id=1090120136167538748&permissions=8&scope=bot%20applications.commands")
-            .setEmoji("982760548041125898"),
+            .setURL('https://discord.com/api/oauth2/authorize?client_id=1090120136167538748&permissions=8&scope=bot%20applications.commands')
+            .setEmoji('982760548041125898'),
           new ButtonBuilder()
-            .setLabel("Server")
+            .setLabel('Server')
             .setStyle(ButtonStyle.Link)
-            .setURL("https://discord.gg/WFfjrQxnfH")
-            .setEmoji("982760524863385701"),
+            .setURL('https://discord.gg/WFfjrQxnfH')
+            .setEmoji('982760524863385701'),
           new ButtonBuilder()
-            .setLabel("Website")
+            .setLabel('Website')
             .setStyle(ButtonStyle.Link)
-            .setURL("https://waifu-music.is-a.fun")
-            .setEmoji("982120760392949811"),
-        );
+            .setURL('https://waifu-music.is-a.fun')
+            .setEmoji('982120760392949811')
+        )
       const nembed = new EmbedBuilder()
-        .setTitle("Thank you!")
+        .setTitle('Thank you!')
         .setDescription("Hi 👋 I'm WaifuMusic a Discord bot that plays music in VC!\nBelow is some of the basics information.")
         .setColor(client.important.MAIN_COLOR)
         .addFields(
           {
-            name: "Slash",
+            name: 'Slash',
             value: "Slash commands, to start type on chat `/waifu-help` make sure the icon of the slash is the same as my icon.\n• Didn't appear? try to invite me again [click this.](https://discord.com/api/oauth2/authorize?client_id=1090120136167538748&permissions=8&scope=bot%20applications.commands)"
           },
           {
-            name: "Features:",
-            value: "• DJ Role System\n• Filters\n• Fun\n• Anime and much more in the future update!"
+            name: 'Features:',
+            value: '• DJ Role System\n• Filters\n• Fun\n• Anime and much more in the future update!'
           }
         )
-      let channel = guild.channels.cache.find(
+      const channel = guild.channels.cache.find(
         channel =>
           channel.type === ChannelType.GuildText &&
           channel.permissionsFor(guild.members.me).has(PermissionsBitField.Flags.SendMessages)
-      );
+      )
       channel.send({ embeds: [nembed], components: [row] })
     } catch (e) {
       console.log(e)

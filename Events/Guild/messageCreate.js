@@ -1,10 +1,10 @@
 const { EmbedBuilder, Collection, PermissionsBitField, Client } = require('discord.js')
-const ms = require('ms');
-const cooldown = new Collection();
-const config = require('../../Config/config.json');
+const ms = require('ms')
+const cooldown = new Collection()
+const config = require('../../Config/config.json')
 
 module.exports = {
-  name: "messageCreate",
+  name: 'messageCreate',
   /**
    *
    * @param (Client) client
@@ -14,34 +14,37 @@ module.exports = {
       defaultvolume: 50,
       defaultautoplay: false,
       defaultfilters: [],
-      djroles: [],
-    });
-    if (message.author.bot) return;
-    if (message.channel.type !== 0) return;
-    const prefix = client.important.WAIFU_PREFIX;
-    if (!message.content.toLowerCase().startsWith(prefix)) return;
-    const args = message.content.toLowerCase().slice(prefix.length).trim().split(/ +/g);
-    const cmd = args.shift().toLowerCase();
-    if (cmd.length == 0) return;
+      djroles: []
+    })
+    if (message.author.bot) return
+    if (message.channel.type !== 0) return
+    const prefix = client.important.WAIFU_PREFIX
+    if (!message.content.toLowerCase().startsWith(prefix)) return
+    const args = message.content.toLowerCase().slice(prefix.length).trim().split(/ +/g)
+    const cmd = args.shift().toLowerCase()
+    if (cmd.length == 0) return
     let command = client.commands.get(cmd)
-    if (!command) command = client.commands.get(client.aliases.get(cmd));
-    if (!command) return;
+    if (!command) command = client.commands.get(client.aliases.get(cmd))
+    if (!command) return
     if (command.inVoiceChannel && !message.member.voice.channel) {
       return await message.reply(`${client.emoji.cross} | You must be in a voice channel!`)
     }
     if (command.sameVoice) {
-      if (message.guild.members.me.voice.channel && !message.guild.members.me.voice.channel.equals(message.member.voice.channel)) return await message.reply({
-        embeds: [
-          new EmbedBuilder()
-            .setColor(client.important.ERR_COLOR)
-            .setDescription(`${client.emoji.cross} | You must be in the same voice channel as the <@${client.user.id}> to use this command!`)
-        ], ephemeral: true
-      });
+      if (message.guild.members.me.voice.channel && !message.guild.members.me.voice.channel.equals(message.member.voice.channel)) {
+        return await message.reply({
+          embeds: [
+            new EmbedBuilder()
+              .setColor(client.important.ERR_COLOR)
+              .setDescription(`${client.emoji.cross} | You must be in the same voice channel as the <@${client.user.id}> to use this command!`)
+          ],
+          ephemeral: true
+        })
+      }
     }
 
     if (command) {
       if (command.cooldown) {
-        if (cooldown.has(`${command.name}${message.author.id}`)) return message.channel.send({ content: config.messages["COOLDOWN_MESSAGE"].replace('<duration>', ms(cooldown.get(`${command.name}${message.author.id}`) - Date.now(), { long: true })) });
+        if (cooldown.has(`${command.name}${message.author.id}`)) return message.channel.send({ content: config.messages.COOLDOWN_MESSAGE.replace('<duration>', ms(cooldown.get(`${command.name}${message.author.id}`) - Date.now(), { long: true })) })
         if (command.userPerms || command.botPerms) {
           if (!message.member.permissions.has(PermissionsBitField.resolve(command.userPerms || []))) {
             const userPerms = new EmbedBuilder()
@@ -61,7 +64,7 @@ module.exports = {
         cooldown.set(`${command.name}${message.author.id}`, Date.now() + command.cooldown)
         setTimeout(() => {
           cooldown.delete(`${command.name}${message.author.id}`)
-        }, command.cooldown);
+        }, command.cooldown)
       } else {
         if (command.userPerms || command.botPerms) {
           if (!message.member.permissions.has(PermissionsBitField.resolve(command.userPerms || []))) {

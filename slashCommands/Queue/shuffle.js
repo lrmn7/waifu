@@ -1,10 +1,10 @@
-const { EmbedBuilder, ApplicationCommandType, WebhookClient } = require("discord.js"); // packages
-const { check_if_dj } = require("../../Util/functions");
-const weblog = require('../../Config/webhook.json');
+const { EmbedBuilder, ApplicationCommandType, WebhookClient } = require('discord.js') // packages
+const { check_if_dj } = require('../../Util/functions')
+const weblog = require('../../Config/webhook.json')
 const wbc = new WebhookClient({
   id: weblog.cmdl.id,
-  token: weblog.cmdl.token,
-});
+  token: weblog.cmdl.token
+})
 
 module.exports = {
   name: 'waifu-shuffle', // name of the command
@@ -14,33 +14,35 @@ module.exports = {
   developer: false, // false if the command is for public
   type: ApplicationCommandType.ChatInput, // chatinput
   cooldown: 3000, // cooldown of the commands
-  default_member_permissions: 'SendMessages', // discord perms user to see the cmd 
+  default_member_permissions: 'SendMessages', // discord perms user to see the cmd
   userPerms: ['SendMessages'], // user perms need to use the command
   botPerms: ['SendMessages', 'ReadMessageHistory', 'Speak', 'Connect', 'UseExternalEmojis', 'AddReactions', 'EmbedLinks', 'AttachFiles'], // bot permissions
   inVoiceChannel: true,
   sameVoice: true,
   options: [], // options string
   execute: async (client, interaction) => {
-    wbc.send(`[slashCommand] :: **Shuffle used by ${interaction.user.tag} from ${interaction.guild.name}**`);
+    wbc.send(`[slashCommand] :: **Shuffle used by ${interaction.user.tag} from ${interaction.guild.name}**`)
     try {
-      const { member, guildId, guild } = interaction;
-      const queue = client.distube.getQueue(guildId);
+      const { member, guildId, guild } = interaction
+      const queue = client.distube.getQueue(guildId)
       try {
-        if (!client.usernews.get(guild.id, "news").includes(interaction.user.id)) {
-          if (!queue || !queue.songs || queue.songs.length == 0) return interaction.reply({
-            embeds: [
-              new EmbedBuilder().setColor(client.important.ERR_COLOR).setTitle(`${client.emoji.blank} | Error`).setDescription(client.emoji.cross + " | No songs are playing at the moment")
-            ],
-            ephemeral: true
-          }).then(() => {
-            interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
-          })
+        if (!client.usernews.get(guild.id, 'news').includes(interaction.user.id)) {
+          if (!queue || !queue.songs || queue.songs.length == 0) {
+            return interaction.reply({
+              embeds: [
+                new EmbedBuilder().setColor(client.important.ERR_COLOR).setTitle(`${client.emoji.blank} | Error`).setDescription(client.emoji.cross + ' | No songs are playing at the moment')
+              ],
+              ephemeral: true
+            }).then(() => {
+              interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
+            })
+          }
           if (check_if_dj(client, member, queue.songs[0])) {
             return interaction.reply({
               embeds: [new EmbedBuilder()
                 .setColor(client.important.ERR_COLOR)
                 .setFooter({ text: `${client.user.username}`, iconURL: client.user.displayAvatarURL() })
-                .setTitle(client.emoji.blank + " Not DJ!")
+                .setTitle(client.emoji.blank + ' Not DJ!')
                 .setDescription(`${client.emoji.warning} | **You are not a DJ and not the Song Requester!**\n**DJ-Roles:**\n> ${check_if_dj(client, member, queue.songs[0])}`)
               ],
               ephemeral: true
@@ -48,8 +50,8 @@ module.exports = {
               interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
             })
           }
-          client.maps.set(`beforeshuffle-${queue.id}`, queue.songs.map(track => track).slice(1));
-          await queue.shuffle();
+          client.maps.set(`beforeshuffle-${queue.id}`, queue.songs.map(track => track).slice(1))
+          await queue.shuffle()
           interaction.reply({
             embeds: [new EmbedBuilder()
               .setColor(client.important.MAIN_COLOR)
@@ -59,26 +61,28 @@ module.exports = {
           }).then(() => {
             interaction.followUp({ content: `<@${interaction.user.id}>`, embeds: [new EmbedBuilder().setColor(client.important.MAIN_COLOR).setTitle(client.config.alert.title).setDescription(client.config.alert.desc).setThumbnail(client.config.alert.thumb)] })
           })
-        } else if (client.usernews.get(guild.id, "news").includes(interaction.user.id)) {
-          if (!queue || !queue.songs || queue.songs.length == 0) return interaction.reply({
-            embeds: [
-              new EmbedBuilder().setColor(client.important.ERR_COLOR).setTitle(`${client.emoji.blank} | Error`).setDescription(client.emoji.cross + " | No songs are playing at the moment")
-            ],
-            ephemeral: true
-          })
+        } else if (client.usernews.get(guild.id, 'news').includes(interaction.user.id)) {
+          if (!queue || !queue.songs || queue.songs.length == 0) {
+            return interaction.reply({
+              embeds: [
+                new EmbedBuilder().setColor(client.important.ERR_COLOR).setTitle(`${client.emoji.blank} | Error`).setDescription(client.emoji.cross + ' | No songs are playing at the moment')
+              ],
+              ephemeral: true
+            })
+          }
           if (check_if_dj(client, member, queue.songs[0])) {
             return interaction.reply({
               embeds: [new EmbedBuilder()
                 .setColor(client.important.ERR_COLOR)
                 .setFooter({ text: `${client.user.username}`, iconURL: client.user.displayAvatarURL() })
-                .setTitle(client.emoji.blank + " Not DJ!")
+                .setTitle(client.emoji.blank + ' Not DJ!')
                 .setDescription(`${client.emoji.warning} | **You are not a DJ and not the Song Requester!**\n**DJ-Roles:**\n> ${check_if_dj(client, member, queue.songs[0])}`)
               ],
               ephemeral: true
-            });
+            })
           }
-          client.maps.set(`beforeshuffle-${queue.id}`, queue.songs.map(track => track).slice(1));
-          await queue.shuffle();
+          client.maps.set(`beforeshuffle-${queue.id}`, queue.songs.map(track => track).slice(1))
+          await queue.shuffle()
           interaction.reply({
             embeds: [new EmbedBuilder()
               .setColor(client.important.MAIN_COLOR)
@@ -90,14 +94,14 @@ module.exports = {
       } catch (e) {
         console.log(e)
         await interaction.reply({
-            embeds:
+          embeds:
                 [
-                    new EmbedBuilder()
-                        .setTitle(client.emoji.warning + " Error!")
-                        .setDescription("*n error occured!" + `${e}`)
-                        .setColor(client.important.ERR_COLOR)
+                  new EmbedBuilder()
+                    .setTitle(client.emoji.warning + ' Error!')
+                    .setDescription('*n error occured!' + `${e}`)
+                    .setColor(client.important.ERR_COLOR)
                 ],
-                ephemeral: true
+          ephemeral: true
         })
       }
     } catch (e) {

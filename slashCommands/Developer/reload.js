@@ -1,10 +1,10 @@
-const { ApplicationCommandType } = require("discord.js");
-const { loadEvents } = require("../../Handlers/eventHandler");
-const { loadslashCommands } = require("../../Handlers/commandHandler");
-const { loadError } = require("../../Handlers/errorHandler");
+const { ApplicationCommandType } = require('discord.js')
+const { loadEvents } = require('../../Handlers/eventHandler')
+const { loadslashCommands } = require('../../Handlers/commandHandler')
+const { loadError } = require('../../Handlers/errorHandler')
 
 module.exports = {
-  name: "reload",
+  name: 'reload',
   description: 'reload the events or commands',
   type: ApplicationCommandType.ChatInput,
   default_member_permissions: 'Administrator',
@@ -27,25 +27,24 @@ module.exports = {
     }
   ],
   execute: async (client, interaction) => {
-    const sub = interaction.options.getSubcommand(["events", "commands"]);
+    const sub = interaction.options.getSubcommand(['events', 'commands'])
 
     switch (sub) {
-      case "events": {
-        loadEvents(client);
-        await interaction.reply({ content: 'events loaded' });
+      case 'events': {
+        loadEvents(client)
+        await interaction.reply({ content: 'events loaded' })
       }
-        break;
-      case "commands": {
-        loadslashCommands(client);
-        await interaction.reply({ content: 'commands loaded' });
+        break
+      case 'commands': {
+        loadslashCommands(client)
+        await interaction.reply({ content: 'commands loaded' })
       }
-        break;
-      case "handler": {
+        break
+      case 'handler': {
         loadError(client)
         await interaction.reply({ content: 'handler loaded' })
       }
-        break;
+        break
     }
-
   }
 }

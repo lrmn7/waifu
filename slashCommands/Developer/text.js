@@ -1,6 +1,6 @@
-const { EmbedBuilder, ApplicationCommandType } = require("discord.js"); // packages
+const { EmbedBuilder, ApplicationCommandType } = require('discord.js') // packages
 
-const { check_if_dj } = require("../../Util/functions");
+const { check_if_dj } = require('../../Util/functions')
 
 module.exports = {
   name: 'waifu-text', // name of the command
@@ -12,7 +12,7 @@ module.exports = {
   options: [], // options string
   execute: async (client, interaction) => {
     try {
-      interaction.reply({ content: "hi hello" })
+      interaction.reply({ content: 'hi hello' })
     } catch (e) {
       console.log(e)
     }

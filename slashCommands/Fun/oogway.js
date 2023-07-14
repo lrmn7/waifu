@@ -1,9 +1,9 @@
-const { EmbedBuilder, ApplicationCommandType, AttachmentBuilder, WebhookClient } = require("discord.js"); // packages
-const weblog = require('../../Config/webhook.json');
+const { EmbedBuilder, ApplicationCommandType, AttachmentBuilder, WebhookClient } = require('discord.js') // packages
+const weblog = require('../../Config/webhook.json')
 const wbc = new WebhookClient({
   id: weblog.cmdl.id,
-  token: weblog.cmdl.token,
-});
+  token: weblog.cmdl.token
+})
 
 module.exports = {
   name: 'waifu-oogway', // name of the command
@@ -12,7 +12,7 @@ module.exports = {
   developer: true, // false if the command is for public
   type: ApplicationCommandType.ChatInput, // chatinput
   cooldown: 3000, // cooldown of the commands
-  default_member_permissions: 'SendMessages', // discord perms user to see the cmd 
+  default_member_permissions: 'SendMessages', // discord perms user to see the cmd
   userPerms: ['SendMessages'], // user perms need to use the command
   botPerms: ['SendMessages', 'ReadMessageHistory', 'Speak', 'Connect', 'UseExternalEmojis', 'AddReactions', 'EmbedLinks', 'AttachFiles'], // bot permissions
   options: [
@@ -24,9 +24,9 @@ module.exports = {
     }
   ], // options string
   execute: async (client, interaction) => {
-    wbc.send(`[slashCommand] :: **Oogway used by ${interaction.user.tag} from ${interaction.guild.name}**`);
+    wbc.send(`[slashCommand] :: **Oogway used by ${interaction.user.tag} from ${interaction.guild.name}**`)
     try {
-      const input = interaction.options.getString("text");
+      const input = interaction.options.getString('text')
       // if (!input) return interaction.reply({ content: "Please provide text to display" });
       // const filepath = `https://luminabot.xyz/api/image/oogway?text=${input}`;
       // fetch(filepath)
@@ -39,14 +39,14 @@ module.exports = {
     } catch (e) {
       console.log(e)
       await interaction.reply({
-          embeds:
+        embeds:
               [
-                  new EmbedBuilder()
-                      .setTitle(client.emoji.warning + " Error!")
-                      .setDescription("*n error occured!" + `${e}`)
-                      .setColor(client.important.ERR_COLOR)
+                new EmbedBuilder()
+                  .setTitle(client.emoji.warning + ' Error!')
+                  .setDescription('*n error occured!' + `${e}`)
+                  .setColor(client.important.ERR_COLOR)
               ],
-              ephemeral: true
+        ephemeral: true
       })
     }
   }

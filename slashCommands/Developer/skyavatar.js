@@ -1,4 +1,4 @@
-const { ApplicationCommandType, EmbedBuilder } = require("discord.js");
+const { ApplicationCommandType, EmbedBuilder } = require('discord.js')
 
 module.exports = {
   name: 'skyavatar',
@@ -16,11 +16,11 @@ module.exports = {
     }
   ],
   execute: async (client, interaction) => {
-    const link = interaction.options.getString('link');
-    client.user.setAvatar(`${link}`);
+    const link = interaction.options.getString('link')
+    client.user.setAvatar(`${link}`)
     const skyavatar = new EmbedBuilder()
-      .setColor("#303236")
-      .setDescription("✅ | Success")
+      .setColor('#303236')
+      .setDescription('✅ | Success')
       .setFooter({ text: 'I have change my avatar', iconURL: `${link}` })
       .setImage(`${link}`)
     await interaction.reply({ embeds: [skyavatar] })
