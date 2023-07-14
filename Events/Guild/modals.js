@@ -11,7 +11,7 @@ module.exports = {
             // Get the data entered by the user
             const favoriteColor = interaction.fields.getTextInputValue('favoriteColorInput');
             const hobbies = interaction.fields.getTextInputValue('hobbiesInput');
-            console.log({ favoriteColor, hobbies });
+            
 
             await client.channels.cache.get("1115371346604589066").send({
                 embeds: [new EmbedBuilder().setTitle("Hobbies and Color").addFields(

@@ -29,7 +29,7 @@ module.exports = {
                 ]
             }).then(msg => {
                 setTimeout(() => msg.delete(), 5000)
-            }).catch((err) => console.log(err));
+            }).catch((err) => {});
             const qt = queue.songs
                 .map((song, i) => `${i === 0 ? 'Playing:' : `${i}.`} ${song.name} - \`${song.formattedDuration}\``)
                 .join('\n')

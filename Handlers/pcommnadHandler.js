@@ -24,7 +24,7 @@ function loadPrefixCommand(client) {
       continue;
     }
   }
-  console.log(white('[') + green('INFO') + white('] ') + green(`${client.commands.size} `) + white('Prefix') + green(' Loaded!'));
+  
 }
 
 module.exports = { loadPrefixCommand }

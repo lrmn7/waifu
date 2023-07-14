@@ -85,7 +85,7 @@ client.login(client.important.WAIFU_TOKEN).then(() => {
   loadDatabase(client);
   loadPlayer(client);
   loadUpdate(client);
-}).catch((err) => console.log(err));
+}).catch((err) => {});
 
 function waifuSpotiisOn(client) {
   return new SpotifyPlugin({
@@ -106,10 +106,10 @@ function waifuSpotiisOff() {
 
 function waifuCheckSpoti(client) {
   if (client.important.WAIFU_TRACKS) {
-    console.log(green("[WAIFU_TRACKS] You enabled the Spotify more tracks!"))
+    
     return waifuSpotiisOn(client)
   } else {
-    console.log(red("[WAIFU_TRACKS] You disabled the Spotify more tracks!"))
+    
     return waifuSpotiisOff()
   }
 }

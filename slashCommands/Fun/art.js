@@ -57,9 +57,9 @@ module.exports = {
           }
         }
         let image = await WomboDream.generateImage(sty, query);
-        console.log(query)
-        console.log(sty)
-        console.log(image)
+        
+        
+        
 
         // sending your art to support server!
         client.channels.cache.get("1091192083852828744").send({
@@ -100,9 +100,9 @@ module.exports = {
           }
         }
         let image = await WomboDream.generateImage(sty, query);
-        console.log(query)
-        console.log(sty)
-        console.log(image)
+        
+        
+        
 
         // sending your art to support server!
         client.channels.cache.get("1091192083852828744").send({

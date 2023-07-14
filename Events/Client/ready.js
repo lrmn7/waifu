@@ -14,8 +14,8 @@ module.exports = {
    * @param (Client) client
    */
   execute(client) {
-    console.log(white('[') + green('INFO') + white('] ') + green(`${client.user.tag} (${client.user.id})`) + white(" is Ready!"));
-    console.log(white('[') + green('INFO') + white('] ') + green(`${client.guilds.cache.size} | ${client.users.cache.size} | ${client.channels.cache.size}`) + white(" Goods"));
+    
+    
     wbc.send({ content: `I'm ready <@742457036914294855> with the ping of **${client.ws.ping}ms!**` })
 
     let guilds = client.guilds.cache.size;
@@ -38,6 +38,6 @@ module.exports = {
 
     mongoose.set('strictQuery', false);
     mongoose.connect(client.important.MONGO_DB, {
-    }).then(() => console.log("MongoDB :: Connected to the database"))
+    }).then(() => {})
   }
 }

@@ -23,9 +23,9 @@ module.exports = {
                 .setTimestamp()
                 .setFooter({ text: 'Waifu Save Music!', iconURL: interaction.user.displayAvatarURL({ dynamic: true }) });
             interaction.user.send({ embeds: [but_save] }).then(async () => {
-                await interaction.reply({ content: `${client.emoji.check} | I sent the name of the music via private message.`, ephemeral: true }).catch((err) => console.log(err));
+                await interaction.reply({ content: `${client.emoji.check} | I sent the name of the music via private message.`, ephemeral: true }).catch((err) => {});
             }).catch(error => {
-                interaction.reply({ content: `${client.emoji.warning} | Unable to send you private message.`, embeds: [but_save], ephemeral: true }).catch((err) => console.log(err));
+                interaction.reply({ content: `${client.emoji.warning} | Unable to send you private message.`, embeds: [but_save], ephemeral: true }).catch((err) => {});
             })
         }
 	}
