@@ -21,20 +21,7 @@ module.exports = {
             if (args[0] === 'anime') {
                 const response = await getQuote('/random');
                 return message.channel.send(formatResponse(response));
-            } else if (args[0] === 'anime') {
-                const animeName = args.slice(1).join(' ');
-                if (!animeName) {
-                    return message.channel.send({ embeds: [errorResponse('No anime name is provided. Please provide a valid anime name')] });
-                }
-
-                const response = await getQuote(`/random/anime?title=${animeName}`);
-
-                if (!response) {
-                    return message.channel.send({ embeds: [errorResponse(`No quotes from "${animeName}" is available now !`)] });
-                }
-
-                return message.channel.send({ embeds: [formatResponse(response)] });
-            } else if (args[0] === 'char') {
+            }  else if (args[0] === 'char') {
                 const characterName = args.slice(1).join(' ');
                 if (!characterName) {
                     return message.channel.send({ embeds: [errorResponse('No anime name is provided. Please provide a valid anime name')] });
